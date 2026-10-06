@@ -1,0 +1,10 @@
+# Sensitive environment credentials
+.env
+
+# Dependencies
+node_modules/
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
