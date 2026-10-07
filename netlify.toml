@@ -1,0 +1,47 @@
+[build]
+  publish = "."
+  command = ""
+
+# Resume alias redirects
+[[redirects]]
+  from = "/download-resume"
+  to = "/Bhawna_Pal_CV.pdf"
+  status = 200
+
+[[redirects]]
+  from = "/Bhawna_CV.pdf"
+  to = "/Bhawna_Pal_CV.pdf"
+  status = 200
+
+[[redirects]]
+  from = "/Bhawna_Pal_Resume.pdf"
+  to = "/Bhawna_Pal_CV.pdf"
+  status = 200
+
+[[redirects]]
+  from = "/resume.pdf"
+  to = "/Bhawna_Pal_CV.pdf"
+  status = 200
+
+# Global Security and Performance Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Asset caching & PDF download headers
+[[headers]]
+  for = "/Bhawna_Pal_CV.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "attachment; filename=\"Bhawna_Pal_CV.pdf\""
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
